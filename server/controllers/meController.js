@@ -1,5 +1,5 @@
 import ApiError from "../error/ApiError.js";
-import { User } from "../models/models.js";
+import { User, Diary } from "../models/models.js";
 
 class MeController {
   async registration(req, res) {
@@ -18,7 +18,11 @@ class MeController {
     return res.json(id);
   }
 
-  async createDiary(req, res) {}
+  async createDiary(req, res) {
+    const diaryName = req.body;
+    const diary =  await Diary.create(diaryName);
+    return res.json(diary);
+  }
 };
 
 export default new MeController();
