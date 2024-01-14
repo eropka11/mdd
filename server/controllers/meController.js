@@ -1,7 +1,12 @@
 import ApiError from "../error/ApiError.js";
+import { User } from "../models/models.js";
 
 class MeController {
-  async registration(req, res) {}
+  async registration(req, res) {
+    const data = req.body;
+    const user = await User.create(data);
+    return res.json(user);
+  }
 
   async login(req, res) {}
 

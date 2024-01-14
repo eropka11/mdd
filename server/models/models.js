@@ -3,7 +3,7 @@ import { DataTypes } from 'sequelize';
 
 const User = sequelize.define('user', {
   id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
-  password: {type: DataTypes.INTEGER},
+  password: {type: DataTypes.STRING, allowNull: false},
   profile: {type: DataTypes.JSON},
   role: {type: DataTypes.STRING, defaultValue: 'USER'},
   subscriptions: {type: DataTypes.ARRAY(DataTypes.INTEGER)},
